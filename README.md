@@ -1,27 +1,61 @@
-# 🚀 Retail & Electronics Sales Analytics (End-to-End Data Analyst Project)
+# 🍎 Apple Retail Sales Performance Analysis (2020–2024)
+
+## 🚨 Executive Summary (Key Insights)
+
+* 📉 Revenue dropped **61% in Nov 2024** → possible data gap or operational issue
+* 🏪 Bottom stores generate **~10% less revenue than average**
+* 📦 **Top 60% of products contribute 80% of total revenue (Pareto Principle)**
+* 📅 Sales peak in **October (festival season)** and dip in **February**
+* 💰 High-priced products show **lower demand → price sensitivity observed**
+
+👉 This project focuses on **business insights and decision-making**, not just analysis.
+
+---
 
 ## 📌 Business Problem
 
-As a Data Analyst, I was tasked with analyzing sales, product, store, and warranty data to uncover:
+As a Data Analyst at a retail electronics company, I was tasked with:
 
-* Revenue fluctuations
-* Store performance issues
-* Product optimization opportunities
-* Warranty cost drivers
-* Pricing and seasonal trends
-
----
-
-## 📊 Dataset Overview
-
-* Sales Data (transactions)
-* Product Data (category, pricing)
-* Store Data (location)
-* Warranty Claims Data
+* Understanding revenue fluctuations
+* Identifying underperforming stores
+* Optimizing product portfolio
+* Reducing warranty costs
+* Improving pricing and inventory strategy
 
 ---
 
-## 🛠️ Tools Used
+## 📂 Dataset Access
+
+Due to file size limitations, the dataset is hosted externally:
+
+🔗 **Download Dataset (OneDrive):**
+👉 https://1drv.ms/x/c/6fe1d6168636f39e/IQCAAA2nPo5WTZCk_EWoYOOUAUL_y1rhfOUX9BHsQzHuUPc?e=GmzIMa
+
+📌 Files included:
+
+* sales.csv
+* products.csv
+* stores.csv
+* category.csv
+* warranty.csv
+
+---
+
+## 🧾 Data Dictionary
+
+| Column         | Description                   |
+| -------------- | ----------------------------- |
+| sale_id        | Unique transaction ID         |
+| product_id     | Product identifier            |
+| store_id       | Store identifier              |
+| sale_date      | Date of sale                  |
+| quantity       | Units sold                    |
+| total_amount   | Total revenue                 |
+| warranty_claim | Indicates if warranty claimed |
+
+---
+
+## 🛠️ Tools & Technologies
 
 * SQL (MySQL)
 * Python (Pandas, Matplotlib, Seaborn)
@@ -30,105 +64,131 @@ As a Data Analyst, I was tasked with analyzing sales, product, store, and warran
 
 ---
 
-## 🔍 Key Business Insights
+## 🔍 Key Business Analysis
 
-### 📉 Revenue Drop
+### 📊 1. Revenue Trend Analysis
 
-* Revenue dropped **61% in Nov 2024**
-* Likely causes:
+* Identified monthly revenue fluctuations
+* Detected sharp drop in Nov 2024
 
-  * Seasonal dip
-  * Inventory or data issues
-
-👉 **Recommendation:** Run promotions & validate data pipeline
+👉 **Recommendation:** Validate data pipeline & run targeted promotions
 
 ---
 
-### 🏪 Store Performance
+### 🏪 2. Store Performance
 
-* Bottom stores generate **~10% less revenue**
+* Ranked stores by revenue
+* Identified consistently underperforming stores
 
-👉 **Recommendation:** Optimize marketing before closure decisions
-
----
-
-### 📦 Product Strategy (Pareto Insight)
-
-* **~60% products generate 80% revenue**
-
-👉 **Recommendation:** Focus on high-performing SKUs & reduce dead inventory
+👉 **Recommendation:** Improve marketing before considering closure
 
 ---
 
-### 🛠️ Warranty Analysis
+### 📦 3. Product Performance (Pareto Analysis)
 
-* High warranty claims in specific products
+* Majority revenue driven by limited products
+
+👉 **Recommendation:** Focus on high-performing products & reduce dead stock
+
+---
+
+### 🛠️ 4. Warranty Analysis
+
+* Identified products with high warranty claims
 
 👉 **Recommendation:** Investigate quality issues & supplier performance
 
 ---
 
-### 💰 Pricing Insight
+### 💰 5. Pricing Strategy
 
-* High-priced products show lower demand
+* High price → lower demand observed
 
-👉 **Recommendation:** Introduce EMI / discounts for premium products
+👉 **Recommendation:** Introduce EMI, bundles, or discounts
 
 ---
 
-### 📅 Seasonal Trends
+### 📅 6. Seasonal Trends
 
-* Peak: October (festival season)
+* Peak: October
 * Low: February
 
-👉 **Recommendation:** Align inventory & campaigns with seasonality
+👉 **Recommendation:** Align inventory & marketing campaigns
 
 ---
 
 ## 📊 Dashboard (Power BI)
 
-Includes:
+The dashboard includes:
 
-* Revenue KPI
-* Store comparison
-* Product performance
+* Revenue KPIs
+* Store performance comparison
+* Product & category analysis
 * Monthly trends
 * Warranty insights
+
+📌 *Dashboard screenshots available in `/dashboard/screenshots/`*
 
 ---
 
 ## 🧠 SQL Highlights
 
 ```sql
--- Top Revenue Products
-SELECT p.product_name, SUM(s.total_amount) AS revenue
-FROM sales s
-JOIN products p ON s.product_id = p.product_id
-GROUP BY p.product_name
-ORDER BY revenue DESC;
+-- Monthly Revenue Trend
+SELECT 
+DATE_FORMAT(sale_date, '%Y-%m') AS month,
+SUM(total_amount) AS revenue
+FROM sales
+GROUP BY month
+ORDER BY month;
+```
+
+```sql
+-- Store Ranking
+SELECT 
+store_id,
+SUM(total_amount) AS revenue,
+RANK() OVER (ORDER BY SUM(total_amount) DESC) AS rank
+FROM sales
+GROUP BY store_id;
 ```
 
 ---
 
-## 🎯 Business Impact
+## 🏗️ Project Architecture
 
-* Identified revenue leakage
-* Improved inventory decisions
-* Enabled data-driven pricing strategy
-* Highlighted underperforming stores
+Data → SQL → Python → Power BI → Insights → Business Decisions
 
 ---
 
-## 🚀 What Makes This Project Unique
+## 💼 Business Impact
 
-✔ Real-world business case
-✔ End-to-end analysis (SQL + Python + BI)
-✔ Actionable insights (not just charts)
-✔ Decision-making focus
+* Identified revenue leakage patterns
+* Improved inventory decision-making
+* Enabled data-driven pricing strategies
+* Highlighted underperforming stores
+* Provided actionable business recommendations
+
+---
+
+## 🚀 What Makes This Project Stand Out
+
+✔ Real-world business scenario
+✔ End-to-end analytics workflow
+✔ Focus on insights, not just charts
+✔ Combines SQL, Python, and BI tools
+✔ Decision-making oriented
 
 ---
 
 ## 👨‍💻 Author
 
 **M Dilli Babu**
-Aspiring Data Analyst | SQL | Python | Power BI
+Aspiring Data Analyst
+🔗 Portfolio: https://dillibabu-data-9flxw8v.gamma.site/
+🔗 LinkedIn: https://www.linkedin.com/in/m-dilli-babu/
+🔗 GitHub: https://github.com/Dilli57
+
+---
+
+## ⭐ If you found this project useful, give it a star!
