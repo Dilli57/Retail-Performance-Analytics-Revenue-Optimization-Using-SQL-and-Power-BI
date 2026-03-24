@@ -1,125 +1,134 @@
-# Apple Retail Sales & Performance Analysis (2020–2024)
+# 🚀 Retail & Electronics Sales Analytics (End-to-End Data Analyst Project)
 
-👇
+## 📌 Business Problem
 
-📊 1️⃣ Revenue & Profitability Problems
-1. Total Revenue Performance
+As a Data Analyst, I was tasked with analyzing sales, product, store, and warranty data to uncover:
 
-What is the total revenue generated company-wide?
+* Revenue fluctuations
+* Store performance issues
+* Product optimization opportunities
+* Warranty cost drivers
+* Pricing and seasonal trends
 
-2. Revenue by Country / Region
+---
 
-Which country generates the highest revenue?
+## 📊 Dataset Overview
 
-3. Top Performing Stores
+* Sales Data (transactions)
+* Product Data (category, pricing)
+* Store Data (location)
+* Warranty Claims Data
 
-Which 10 stores generate the highest revenue?
+---
 
-4. Underperforming Stores
+## 🛠️ Tools Used
 
-Which stores are consistently generating low sales?
+* SQL (MySQL)
+* Python (Pandas, Matplotlib, Seaborn)
+* Power BI
+* Excel
 
-5. Monthly Revenue Trend
+---
 
-Is revenue increasing month-over-month?
+## 🔍 Key Business Insights
 
-6. Seasonal Sales Pattern
+### 📉 Revenue Drop
 
-Which month has the highest average sales?
+* Revenue dropped **61% in Nov 2024**
+* Likely causes:
 
-🛍 2️⃣ Product Performance Problems
-7. Best Selling Products
+  * Seasonal dip
+  * Inventory or data issues
 
-What are the top 10 products by revenue?
+👉 **Recommendation:** Run promotions & validate data pipeline
 
-8. Worst Performing Products
+---
 
-Which products generate the least revenue?
+### 🏪 Store Performance
 
-9. Category Contribution
+* Bottom stores generate **~10% less revenue**
 
-Which product category contributes the most revenue?
+👉 **Recommendation:** Optimize marketing before closure decisions
 
-10. Product Sales Distribution
+---
 
-What percentage of total sales comes from top 20% products?
-(Pareto Analysis – very impressive in interviews)
+### 📦 Product Strategy (Pareto Insight)
 
-🏬 3️⃣ Store Performance & Expansion Strategy
-11. Store Ranking Within Country
+* **~60% products generate 80% revenue**
 
-Rank stores within each country by revenue.
+👉 **Recommendation:** Focus on high-performing SKUs & reduce dead inventory
 
-12. Revenue Per Store Size
+---
 
-Do larger stores generate more revenue?
+### 🛠️ Warranty Analysis
 
-13. City-Level Sales Comparison
+* High warranty claims in specific products
 
-Which cities perform best?
+👉 **Recommendation:** Investigate quality issues & supplier performance
 
-14. Store Growth Rate
+---
 
-Which stores are growing fastest over time?
+### 💰 Pricing Insight
 
-🛠 4️⃣ Warranty & Quality Analysis (Very Powerful)
+* High-priced products show lower demand
 
-This makes your project stand out because most students ignore warranty analysis.
+👉 **Recommendation:** Introduce EMI / discounts for premium products
 
-15. Warranty Claim Rate
+---
 
-What percentage of sold products receive warranty claims?
+### 📅 Seasonal Trends
 
-16. Products with Highest Warranty Claims
+* Peak: October (festival season)
+* Low: February
 
-Which products have the highest defect rate?
+👉 **Recommendation:** Align inventory & campaigns with seasonality
 
-17. Category-wise Warranty Rate
+---
 
-Which category has the most warranty issues?
+## 📊 Dashboard (Power BI)
 
-18. Store-wise Warranty Analysis
+Includes:
 
-Which store sells products with highest return rate?
+* Revenue KPI
+* Store comparison
+* Product performance
+* Monthly trends
+* Warranty insights
 
-19. Average Time to Claim Warranty
+---
 
-After how many days do customers claim warranty?
+## 🧠 SQL Highlights
 
-📈 5️⃣ Advanced Business Insights (Interview-Level)
-20. Customer Purchase Behavior
+```sql
+-- Top Revenue Products
+SELECT p.product_name, SUM(s.total_amount) AS revenue
+FROM sales s
+JOIN products p ON s.product_id = p.product_id
+GROUP BY p.product_name
+ORDER BY revenue DESC;
+```
 
-Are customers buying more expensive products over time?
+---
 
-21. Revenue Concentration Risk
+## 🎯 Business Impact
 
-Is revenue heavily dependent on few products or stores?
+* Identified revenue leakage
+* Improved inventory decisions
+* Enabled data-driven pricing strategy
+* Highlighted underperforming stores
 
-22. Product Lifecycle
+---
 
-How long does a product remain a top seller?
+## 🚀 What Makes This Project Unique
 
-23. Revenue Volatility
+✔ Real-world business case
+✔ End-to-end analysis (SQL + Python + BI)
+✔ Actionable insights (not just charts)
+✔ Decision-making focus
 
-Which stores show unstable revenue patterns?
+---
 
-24. Cross-Category Performance
+## 👨‍💻 Author
 
-Which category performs best in each country?
-
-🧠 6️⃣ Optimization & Strategy Questions
-25. Inventory Planning
-
-Which products need more stock allocation?
-
-26. Store Closure Recommendation
-
-Which bottom 5 stores should management reconsider?
-
-27. Expansion Strategy
-
-Which country should the company expand in?
-
-28. High Risk Products
-
-Which products should undergo quality review due to high warranty rate?
+**M Dilli Babu**
+Aspiring Data Analyst | SQL | Python | Power BI
