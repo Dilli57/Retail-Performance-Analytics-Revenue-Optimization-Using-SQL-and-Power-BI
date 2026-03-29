@@ -1,4 +1,4 @@
-# 🍎 Apple Retail Sales Performance Analysis (2020–2024)
+# Retail Performance Analytics & Revenue Optimization Using SQL and Power BI
 
 ## 🚨 Executive Summary (Key Insights)
 
